@@ -1,25 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Layout } from './components/Layout';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Layout>
+        teste com o children
+        <div>
+          <h1>Login Dio Bank</h1>
+          <label htmlFor='emailInput'>Email</label>
+          <input
+            id='emailInput'
+            type='email'
+          />
+          <label htmlFor='passwordInput'>Password</label>
+          <input
+            id='passwordInput'
+            type='password'
+          />
+
+          <button>Entrar</button>
+        </div>
+      </Layout>
+    </>
   );
 }
 
