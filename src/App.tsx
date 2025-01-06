@@ -1,4 +1,5 @@
 import { Layout } from './components/Layout';
+import { ChakraProvider, Flex, Input } from '@chakra-ui/react';
 import styled from 'styled-components';
 
 const Box = styled.div`
@@ -10,26 +11,20 @@ const Box = styled.div`
 function App() {
   return (
     <>
-      <Layout>
-        teste com o children
-        <div>
-          <Box>
-            <h1>Login Dio Bank</h1>
-          </Box>
-          <label htmlFor='emailInput'>Email</label>
-          <input
-            id='emailInput'
-            type='email'
-          />
-          <label htmlFor='passwordInput'>Password</label>
-          <input
-            id='passwordInput'
-            type='password'
-          />
+      <ChakraProvider>
+        <Flex direction={'column'}>
+          <h1>Login Dio Bank</h1>
+          <Flex
+            direction={'column'}
+            justify={'center'}
+          >
+            <Input placeholder='email' />
+            <Input placeholder='password' />
+          </Flex>
+        </Flex>
 
-          <button>Entrar</button>
-        </div>
-      </Layout>
+        <button>Entrar</button>
+      </ChakraProvider>
     </>
   );
 }
