@@ -1,4 +1,11 @@
 import { Layout } from './components/Layout';
+import styled from 'styled-components';
+
+const Box = styled.div`
+  background-color: orange;
+  border-radius: 15px;
+  text-align: center;
+`;
 
 function App() {
   return (
@@ -6,7 +13,9 @@ function App() {
       <Layout>
         teste com o children
         <div>
-          <h1>Login Dio Bank</h1>
+          <Box>
+            <h1>Login Dio Bank</h1>
+          </Box>
           <label htmlFor='emailInput'>Email</label>
           <input
             id='emailInput'
