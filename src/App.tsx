@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import {
   ChakraProvider,
   Box,
@@ -6,8 +7,16 @@ import {
   Text,
   Flex,
 } from '@chakra-ui/react';
+import { login } from './services/login';
 
 function App() {
+  const [email, setEmail] = useState(''); // Estado inicial vazio
+
+  const handleLogin = () => {
+    console.log('Email:', email); // Debug para verificar o valor do email
+    login(email); // Chama a função login com o email
+  };
+
   return (
     <>
       <ChakraProvider>
@@ -33,13 +42,18 @@ function App() {
               >
                 Login Dio Bank
               </Text>
-              <Input placeholder='email' />
+              <Input
+                placeholder='email'
+                value={email}
+                onChange={(e) => setEmail(e.target.value)} // Atualiza o estado do email
+              />
               <Input placeholder='password' />
 
               <Button
                 variant='surface'
                 width={'100%'}
                 marginTop={'10px'}
+                onClick={handleLogin} // Callback para o evento
               >
                 Entrar
               </Button>

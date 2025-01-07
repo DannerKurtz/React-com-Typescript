@@ -5,9 +5,9 @@ describe('Login Function', () => {
   it('should call alert with "Bem vindo!"', () => {
     const alertMock = jest.spyOn(window, 'alert').mockImplementation(() => {});
 
-    login();
+    login('a@a.com');
 
-    expect(alertMock).toHaveBeenCalledWith('Bem vindo!');
+    expect(alertMock).toHaveBeenCalledWith('Seja bem-vindo a@a.com');
     alertMock.mockRestore();
   });
 });
