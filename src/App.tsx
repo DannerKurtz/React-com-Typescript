@@ -1,29 +1,51 @@
-import { Layout } from './components/Layout';
-import { ChakraProvider, Flex, Input } from '@chakra-ui/react';
-import styled from 'styled-components';
-
-const Box = styled.div`
-  background-color: orange;
-  border-radius: 15px;
-  text-align: center;
-`;
+import {
+  ChakraProvider,
+  Box,
+  Input,
+  Button,
+  Text,
+  Flex,
+} from '@chakra-ui/react';
 
 function App() {
   return (
     <>
       <ChakraProvider>
-        <Flex direction={'column'}>
-          <h1>Login Dio Bank</h1>
+        <Box
+          minHeight={'100vh'}
+          backgroundColor={'#9413dc'}
+          padding={'25vh'}
+        >
           <Flex
-            direction={'column'}
-            justify={'center'}
+            display={'flex'}
+            justifyContent={'center'}
+            alignItems={'center'}
           >
-            <Input placeholder='email' />
-            <Input placeholder='password' />
-          </Flex>
-        </Flex>
+            <Box
+              bg={'#FFFFFF'}
+              borderRadius={'25px'}
+              padding={'15px'}
+            >
+              <Text
+                fontWeight='semibold'
+                textAlign={'center'}
+                margin={'10px'}
+              >
+                Login Dio Bank
+              </Text>
+              <Input placeholder='email' />
+              <Input placeholder='password' />
 
-        <button>Entrar</button>
+              <Button
+                variant='surface'
+                width={'100%'}
+                marginTop={'10px'}
+              >
+                Entrar
+              </Button>
+            </Box>
+          </Flex>
+        </Box>
       </ChakraProvider>
     </>
   );
