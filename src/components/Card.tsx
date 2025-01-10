@@ -1,6 +1,7 @@
 import { Box, Button, Flex, Input, Text } from '@chakra-ui/react';
 import { login } from '../services/login';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { api } from '../api';
 
 export const Card = ({ onClose }: any) => {
   const [email, setEmail] = useState(''); // Estado inicial vazio
@@ -10,6 +11,15 @@ export const Card = ({ onClose }: any) => {
     login(email); // Chama a função login com o email
     onClose(); // Fecha o Card após o login
   };
+
+  useEffect(() => {
+    const getData = async () => {
+      const data = await api;
+      console.log(data);
+    };
+
+    getData();
+  });
 
   return (
     <Box
