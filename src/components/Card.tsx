@@ -3,19 +3,28 @@ import { login } from '../services/login';
 import { useEffect, useState } from 'react';
 import { api } from '../api';
 
+interface UserData {
+  email: string;
+  password: string;
+  name: string;
+}
+
 export const Card = ({ onClose }: any) => {
   const [email, setEmail] = useState(''); // Estado inicial vazio
+  const [password, setPassword] = useState('');
 
   const handleLogin = () => {
     console.log('Email:', email); // Debug para verificar o valor do email
-    login(email); // Chama a função login com o email
+    login(email, password); // Chama a função login com o email
     onClose(); // Fecha o Card após o login
   };
 
+  const [userData, setUserData] = useState<any | UserData>();
+
   useEffect(() => {
     const getData = async () => {
-      const data = await api;
-      console.log(data);
+      const data: any | UserData = await api;
+      setUserData(data);
     };
 
     getData();
@@ -55,6 +64,8 @@ export const Card = ({ onClose }: any) => {
         <Input
           placeholder='password'
           marginTop='10px'
+          value={password}
+          onChange={(event) => setPassword(event.target.value)}
         />
 
         <Button
