@@ -43,6 +43,7 @@ export const Card = ({ onClose }: any) => {
       alignItems='center'
       zIndex='1000' // Coloca o Card acima de outros elementos
     >
+      {userData === null || (userData === undefined && <h1>LOADING...</h1>)}
       <Box
         bg={'#FFFFFF'}
         borderRadius={'25px'}
