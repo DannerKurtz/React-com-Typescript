@@ -9,15 +9,9 @@ interface UserData {
   name: string;
 }
 
-export const Card = ({ onClose }: any) => {
+export const Card = () => {
   const [email, setEmail] = useState(''); // Estado inicial vazio
   const [password, setPassword] = useState('');
-
-  const handleLogin = () => {
-    console.log('Email:', email); // Debug para verificar o valor do email
-    login(email, password); // Chama a função login com o email
-    onClose(); // Fecha o Card após o login
-  };
 
   const [userData, setUserData] = useState<any | UserData>();
 
@@ -30,14 +24,17 @@ export const Card = ({ onClose }: any) => {
     getData();
   });
 
+  const entrar = () => {
+    login(email, password);
+  };
+
   return (
     <Box
-      position='fixed'
       top='0'
       left='0'
       width='100%'
-      height='100vh'
-      backgroundColor='rgba(0, 0, 0, 0.5)' // Fundo escuro semitransparente
+      backgroundColor={'purple'}
+      height='90vh'
       display='flex'
       justifyContent='center'
       alignItems='center'
@@ -73,18 +70,9 @@ export const Card = ({ onClose }: any) => {
           variant='solid'
           width={'100%'}
           marginTop={'10px'}
-          onClick={handleLogin} // Callback para o evento
+          onClick={entrar}
         >
           Entrar
-        </Button>
-
-        <Button
-          variant='ghost'
-          width={'100%'}
-          marginTop={'10px'}
-          onClick={onClose} // Fecha o Card
-        >
-          Cancelar
         </Button>
       </Box>
     </Box>

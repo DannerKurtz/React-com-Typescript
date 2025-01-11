@@ -1,11 +1,15 @@
 import { ChakraProvider } from '@chakra-ui/react';
 import { Header } from './components/Header/Header';
+import { Layout } from './components/Layout';
+import { Card } from './components/Card';
 
 function App() {
   return (
     <>
       <ChakraProvider>
-        <Header />
+        <Layout>
+          <Card />
+        </Layout>
       </ChakraProvider>
     </>
   );
