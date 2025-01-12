@@ -6,7 +6,12 @@ export const Layout = ({ children }: any) => {
   return (
     <>
       <Header />
-      <Box backgroundColor={'purple'}>{children}</Box>
+      <Box
+        backgroundColor={'purple'}
+        height={'90vh'}
+      >
+        {children}
+      </Box>
       <Footer />
     </>
   );

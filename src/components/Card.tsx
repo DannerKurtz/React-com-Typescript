@@ -33,7 +33,6 @@ export const Card = () => {
       top='0'
       left='0'
       width='100%'
-      backgroundColor={'purple'}
       height='90vh'
       display='flex'
       justifyContent='center'
