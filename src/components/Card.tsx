@@ -1,28 +1,14 @@
-import { Box, Button, Flex, Input, Text } from '@chakra-ui/react';
+import { Box, Button,  Input, Text } from '@chakra-ui/react';
 import { login } from '../services/login';
-import { useEffect, useState } from 'react';
-import { api } from '../api';
+import {  useState } from 'react';
 
-interface UserData {
-  email: string;
-  password: string;
-  name: string;
-}
+
 
 export const Card = () => {
   const [email, setEmail] = useState(''); // Estado inicial vazio
   const [password, setPassword] = useState('');
 
-  const [userData, setUserData] = useState<any | UserData>();
 
-  useEffect(() => {
-    const getData = async () => {
-      const data: any | UserData = await api;
-      setUserData(data);
-    };
-
-    getData();
-  });
 
   const entrar = () => {
     login(email, password);
@@ -39,7 +25,6 @@ export const Card = () => {
       alignItems='center'
       zIndex='1000' // Coloca o Card acima de outros elementos
     >
-      {userData === null || (userData === undefined && <h1>LOADING...</h1>)}
       <Box
         bg={'#FFFFFF'}
         borderRadius={'25px'}
