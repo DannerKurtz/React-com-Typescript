@@ -1,5 +1,4 @@
 import { ChakraProvider } from '@chakra-ui/react';
-import { Header } from './components/Header/Header';
 import { Layout } from './components/Layout';
 import { Card } from './components/Card';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
