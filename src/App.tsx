@@ -4,6 +4,7 @@ import { Layout } from './components/Layout';
 import { Card } from './components/Card';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Conta } from './pages/Conta';
+import { InfoConta } from './pages/InfoConta';
 
 function App() {
   return (
@@ -17,8 +18,12 @@ function App() {
                 element={<Card />}
               />
               <Route
-                path='/conta'
+                path='/conta/:id'
                 element={<Conta />}
+              />
+              <Route
+                path='/infoconta'
+                element={<InfoConta />}
               />
             </Routes>
           </Layout>
