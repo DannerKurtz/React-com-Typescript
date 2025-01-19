@@ -1,26 +1,12 @@
 import { ChakraProvider } from '@chakra-ui/react';
 import { Layout } from './components/Layout';
-import { Card } from './components/Card';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Conta } from './pages/Conta';
 import { InfoConta } from './pages/InfoConta';
-import { createContext } from 'react';
-
-interface IAppContext {
-  user: string;
-}
-
-export const AppContext = createContext({} as IAppContext);
+import { AppContextProvider } from './components/AppContext';
+import { Home } from './pages/Home';
 
 function App() {
-  const AppContextProvider = ({ children }: any) => {
-    const user = 'dan';
-
-    return (
-      <AppContext.Provider value={{ user }}>{children}</AppContext.Provider>
-    );
-  };
-
   return (
     <>
       <BrowserRouter>
@@ -30,7 +16,7 @@ function App() {
               <Routes>
                 <Route
                   path='/'
-                  element={<Card />}
+                  element={<Home />}
                 />
                 <Route
                   path='/conta/:id'

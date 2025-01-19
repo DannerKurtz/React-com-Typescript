@@ -1,19 +1,6 @@
-import { Box, Button,  Input, Text } from '@chakra-ui/react';
-import { login } from '../services/login';
-import {  useState } from 'react';
+import { Box } from '@chakra-ui/react';
 
-
-
-export const Card = () => {
-  const [email, setEmail] = useState(''); // Estado inicial vazio
-  const [password, setPassword] = useState('');
-
-
-
-  const entrar = () => {
-    login(email, password);
-  };
-
+export const Card = ({ children }: any) => {
   return (
     <Box
       top='0'
@@ -23,7 +10,7 @@ export const Card = () => {
       display='flex'
       justifyContent='center'
       alignItems='center'
-      zIndex='1000' // Coloca o Card acima de outros elementos
+      zIndex='1000' 
     >
       <Box
         bg={'#FFFFFF'}
@@ -31,33 +18,7 @@ export const Card = () => {
         padding={'15px'}
         width='300px'
       >
-        <Text
-          fontWeight='semibold'
-          textAlign={'center'}
-          margin={'10px'}
-        >
-          Login Dio Bank
-        </Text>
-        <Input
-          placeholder='email'
-          value={email}
-          onChange={(e) => setEmail(e.target.value)} // Atualiza o estado do email
-        />
-        <Input
-          placeholder='password'
-          marginTop='10px'
-          value={password}
-          onChange={(event) => setPassword(event.target.value)}
-        />
-
-        <Button
-          variant='solid'
-          width={'100%'}
-          marginTop={'10px'}
-          onClick={entrar}
-        >
-          Entrar
-        </Button>
+        {children}
       </Box>
     </Box>
   );

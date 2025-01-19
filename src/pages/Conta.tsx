@@ -3,7 +3,7 @@ import { CardInfo } from '../components/CardInfo';
 import { useContext, useEffect, useState } from 'react';
 import { api } from '../api';
 import { useNavigate, useParams } from 'react-router-dom';
-import { AppContext } from '../App';
+import { AppContext } from '../components/AppContext';
 
 interface UserData {
   id: string;
@@ -16,12 +16,11 @@ interface UserData {
 export const Conta = () => {
   const [userData, setUserData] = useState<any | UserData>();
 
-  const context = useContext(AppContext);
-
-  console.log(context);
+  const { isLoggedIn } = useContext(AppContext);
 
   const { id } = useParams();
   const navigate = useNavigate();
+
   useEffect(() => {
     const getData = async () => {
       const data: any | UserData = await api;
@@ -33,6 +32,7 @@ export const Conta = () => {
 
   const actualData = new Date();
 
+  !isLoggedIn && navigate('/');
   if (userData && userData.id !== id) {
     navigate('/');
   }
