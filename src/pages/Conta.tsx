@@ -1,8 +1,9 @@
 import { Center, SimpleGrid, Spinner } from '@chakra-ui/react';
 import { CardInfo } from '../components/CardInfo';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { api } from '../api';
 import { useNavigate, useParams } from 'react-router-dom';
+import { AppContext } from '../App';
 
 interface UserData {
   id: string;
@@ -14,6 +15,11 @@ interface UserData {
 
 export const Conta = () => {
   const [userData, setUserData] = useState<any | UserData>();
+
+  const context = useContext(AppContext);
+
+  console.log(context);
+
   const { id } = useParams();
   const navigate = useNavigate();
   useEffect(() => {
